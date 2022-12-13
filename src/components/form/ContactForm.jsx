@@ -7,7 +7,7 @@ import { FormBox, ButtonAdd, InputBox, LabelBox } from './FormStyled';
 // const nameInputId = nanoid(5);
 // const numberInputId = nanoid(8)
 
-export function ContactForm({ onSubmit }) {
+export function Form({ onSubmit }) {
 
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
@@ -70,7 +70,12 @@ export function ContactForm({ onSubmit }) {
 
 }
 
+export default Form;
 
+Form.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+
+};
 
 
 // class ContactForm extends Component {
@@ -140,9 +145,3 @@ export function ContactForm({ onSubmit }) {
 // }
 
 
-export default ContactForm;
-
-ContactForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-
-};
