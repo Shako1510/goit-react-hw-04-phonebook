@@ -6,6 +6,9 @@ import Filter from "../filter/Filter";
 import { DivBox, TitleBox, SecondaryTitleBox } from "./AppStyled";
 
 
+
+
+
 export class App extends Component {
   state = {
     contacts: [
