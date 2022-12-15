@@ -29,10 +29,9 @@ export function App() {
     const findContact = contacts.find((contact) => contact.name === name);
 
     if (findContact) {
-      alert(`${this.state.name} is already in contacts`);
+      alert(`${name} is already in contacts`);
       return;
     }
-
 
     const newContact = {
       id: nanoid(),
@@ -41,19 +40,17 @@ export function App() {
       number,
     };
 
-    setContacts(prevState => ({
-
-      contacts: [newContact, ...prevState.contacts],
-
-    }
+    setContacts(prevState =>
+      [newContact, ...prevState],
     )
-    )
+
   };
 
 
   const serchingFilter = (e) => {
-    setFilter({ filter: e.currentTarget.value });
-  }
+    const value = e.currentTarget.value
+    setFilter(value);
+  };
 
   // contactFiltering = () => {
   //   const { filter, contacts } = this.state;
@@ -63,27 +60,14 @@ export function App() {
   // }
 
   const removeContact = (contactId) => {
-    this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
-    }))
+    setContacts(prevState =>
+      contacts.filter(contact => contact.id !== contactId),
+    )
   }
 
-
-  const chekingContacts = () => {
-    const { contacts, name } = this.state;
-    const findContact = contacts.find((contact) => contact.name === name);
-
-    if (findContact) {
-      alert(`${this.state.name} is already in contacts`);
-    }
-  };
-
-
-
-
   // this.chekingContacts();
-  const normalizedFilter = this.state.filter.toLowerCase();
-  const visibleContacts = this.state.contacts.filter(contact =>
+  const normalizedFilter = filter.toLowerCase();
+  const visibleContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(normalizedFilter)
   );
   // const filter = this.contactFiltering();
@@ -98,12 +82,12 @@ export function App() {
       <SecondaryTitleBox>Contacts</SecondaryTitleBox>
 
       <Filter
-        filterValue={this.state.filter}
-        onChange={this.serchingFilter} />
+        filterValue={filter}
+        onChange={serchingFilter} />
 
       <Contacts
         contacts={visibleContacts}
-        onClick={this.removeContact}
+        onClick={removeContact}
       />
 
 
@@ -111,9 +95,7 @@ export function App() {
   );
 }
 
-
-
-
+export default App;
 
 
 // export class App extends Component {
@@ -232,4 +214,3 @@ export function App() {
 //   };
 // }
 
-export default App;
