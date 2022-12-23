@@ -2,11 +2,6 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FormBox, ButtonAdd, InputBox, LabelBox } from './FormStyled';
 
-
-
-// const nameInputId = nanoid(5);
-// const numberInputId = nanoid(8)
-
 export function Form({ onSubmit }) {
 
     const [name, setName] = useState('');
@@ -119,7 +114,6 @@ Form.propTypes = {
 //                             required
 //                             onChange={this.handleInputChange}
 //                             value={this.state.name}
-
 //                         />
 //                     </LabelBox>
 
@@ -132,11 +126,8 @@ Form.propTypes = {
 //                             required
 //                             onChange={this.handleInputChange}
 //                             value={this.state.number}
-
-
 //                         />
 //                     </LabelBox>
-
 //                     <ButtonAdd type="submit">Add contact</ButtonAdd>
 //                 </form>
 //             </FormBox >

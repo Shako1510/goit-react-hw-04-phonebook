@@ -17,8 +17,6 @@ export function App() {
 
   const [filter, setFilter] = useState("");
 
-
-
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts))
   }, [contacts]);
@@ -35,7 +33,6 @@ export function App() {
 
     const newContact = {
       id: nanoid(),
-      // id: this.state.id,
       name,
       number,
     };
@@ -43,21 +40,12 @@ export function App() {
     setContacts(prevState =>
       [newContact, ...prevState],
     )
-
   };
-
 
   const serchingFilter = (e) => {
     const value = e.currentTarget.value
     setFilter(value);
   };
-
-  // contactFiltering = () => {
-  //   const { filter, contacts } = this.state;
-  //   const normalizeFilter = filter.toLowerCase();
-  //   return contacts.filter(contact => contact.name.toLowerCase().includes(normalizeFilter),
-  //   );
-  // }
 
   const removeContact = (contactId) => {
     setContacts(prevState =>
@@ -65,12 +53,10 @@ export function App() {
     )
   }
 
-  // this.chekingContacts();
   const normalizedFilter = filter.toLowerCase();
   const visibleContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(normalizedFilter)
   );
-  // const filter = this.contactFiltering();
 
   return (
     <DivBox>
@@ -89,8 +75,6 @@ export function App() {
         contacts={visibleContacts}
         onClick={removeContact}
       />
-
-
     </DivBox>
   );
 }
@@ -106,9 +90,7 @@ export default App;
 //       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
 //       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
 //     ],
-
 //     filter: '',
-
 //   }
 
 //   componentDidMount() {
@@ -119,14 +101,10 @@ export default App;
 //   }
 
 //   componentDidUpdate(prevProps, prevState) {
-
 //     if (this.state.contacts !== prevState.contacts)
 //       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
 //   }
-
-
 //   addContact = ({ name, number }) => {
-
 //     const { contacts } = this.state;
 //     const findContact = contacts.find((contact) => contact.name === name);
 
@@ -134,7 +112,6 @@ export default App;
 //       alert(`${this.state.name} is already in contacts`);
 //       return;
 //     }
-
 
 //     const newContact = {
 //       id: nanoid(),
@@ -144,14 +121,11 @@ export default App;
 //     };
 
 //     this.setState(prevState => ({
-
 //       contacts: [newContact, ...prevState.contacts],
-
 //     }
 //     )
 //     )
 //   };
-
 
 //   serchingFilter = (e) => {
 //     this.setState({ filter: e.currentTarget.value });
@@ -169,19 +143,13 @@ export default App;
 //       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
 //     }))
 //   }
-
-
 //   chekingContacts = () => {
 //     const { contacts, name } = this.state;
 //     const findContact = contacts.find((contact) => contact.name === name);
-
 //     if (findContact) {
 //       alert(`${this.state.name} is already in contacts`);
 //     }
 //   };
-
-
-
 //   render() {
 //     // this.chekingContacts();
 //     const normalizedFilter = this.state.filter.toLowerCase();
@@ -207,8 +175,6 @@ export default App;
 //           contacts={visibleContacts}
 //           onClick={this.removeContact}
 //         />
-
-
 //       </DivBox>
 //     );
 //   };
