@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { nanoid } from 'nanoid';
-import Form from "./ContactForm";
-import Contacts from "./Contacts";
-import Filter from "./Filter";
+import Form from "../Form/ContactForm";
+import Contacts from "../Contacts/Contacts";
+import Filter from "../Filter/Filter";
 import { DivBox, TitleBox, SecondaryTitleBox } from "./AppStyled";
 
 
